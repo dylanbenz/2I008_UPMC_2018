@@ -1,10 +1,3 @@
-let rec merge l1 l2 =
-  match l1,l2 with
-  | [],[]->[]
-  | x::xl1,y::yl2->if (compare x y)<0 then x::(merge xl1 l2) else y::(merge l1 yl2)
-  | _,[]->l1
-  | [],_->l2
-
 let merge l1 l2 =
   let rec loop l1 l2 acc =
     match l1,l2 with
@@ -41,9 +34,8 @@ let char_list_of_string str =
     aux (String.length str - 1) []
 
 let compare_char c1 c2 =
-  let ic1 = int_of_char c1 in
-  let ic2 = int_of_char c2 in
-  ic1 - ic2
+  (int_of_char c1) - (int_of_char c2)
+
 	  
 let rec list_compare f l1 l2 =
   match l1,l2 with
@@ -53,9 +45,11 @@ let rec list_compare f l1 l2 =
   | x::sl1,y::sl2->if (f x y)=0 then (list_compare f sl1 sl2) else (f x y) 
 
 let is_palindrome s =
-  let srev = List.rev (char_list_of_string s) in
-  list_compare (compare_char) (char_list_of_string s) srev
+  let sl = char_list_of_string s in
+  let srev = List.rev (sl) in
+  list_compare (compare_char) (sl) srev = 0
 
 let is_anagram s1 s2 =
-  let ss1 = merge_sort (char
-  
+  let sl1 = char_list_of_string s1 in
+  let sl2 = char_list_of_string s2 in
+  list_compare (compare_char) (merge_sort ls1) (merge_sort ls2)
