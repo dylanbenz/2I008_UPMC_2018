@@ -25,6 +25,10 @@ let rec merge_sort l =
      merge l1_triee l2_triee
 
 
+
+
+
+
 let char_list_of_string str =
   let rec aux i acc =
     match i with
@@ -35,8 +39,7 @@ let char_list_of_string str =
 
 let compare_char c1 c2 =
   (int_of_char c1) - (int_of_char c2)
-
-	  
+  
 let rec list_compare f l1 l2 =
   match l1,l2 with
   | [],[]->0
@@ -50,6 +53,6 @@ let is_palindrome s =
   list_compare (compare_char) (sl) srev = 0
 
 let is_anagram s1 s2 =
-  let sl1 = char_list_of_string s1 in
-  let sl2 = char_list_of_string s2 in
-  list_compare (compare_char) (merge_sort ls1) (merge_sort ls2)
+  let ls1 = char_list_of_string s1 in
+  let ls2 = char_list_of_string s2 in
+  list_compare (compare_char) (merge_sort ls1) (merge_sort ls2) = 0
