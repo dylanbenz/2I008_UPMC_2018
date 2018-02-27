@@ -42,3 +42,18 @@ let devine_decalage l =
        
 let dechiffre_char d ch =
   char_of_int((((int_of_char ch - int_of_char 'a')- d)+26) mod 26 + int_of_char 'a')
+	     
+let main =
+  let fileIn = open_in(Sys.argv.(1)) in
+  let listeLettres = frequences_fichier fileIn in
+  let decalage = devine_decalage listeLettres in
+  let file2In = open_in(Sys.argv.(1)) in
+  let fileOut = open_out("res") in
+  let rec ecrire fluxin fluxout d =
+    match (input_char_opt fluxin) with
+    | None -> ()
+    | Some c -> if est_minuscule c
+		then (output_char fluxout (dechiffre_char d c);ecrire fluxin fluxout d)
+		else (output_char fluxout c;ecrire fluxin fluxout d)
+  in
+  ecrire file2In fileOut decalage
