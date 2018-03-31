@@ -15,15 +15,15 @@ let deplace_west (x,y) = (x-1, y)
 (* TODO *)
 
 
-let event_loop laby =
-  let st = Graphics.wait_next_event [Graphics.Key_pressed] in
-  match st.Graphics.key with
-  | '
+(* let event_loop laby = *)
+(*   let st = Graphics.wait_next_event [Graphics.Key_pressed] in *)
+(*   match st.Graphics.key with *)
+(*   |  *)
   
-  affiche_laby laby;
-  event_loop laby
+(*   affiche_laby laby; *)
+(*   event_loop laby *)
 
-let est_legal laby pos1 pos2 =
+(* let est_legal laby pos1 pos2 = *)
   
   
 let () = ()
